@@ -1,0 +1,5 @@
+Revision history for Perl extension HTTP::Request::Form.
+
+0.1  Fri Feb 13 11:49:30 1998
+	- original version; created by h2xs 1.18
+

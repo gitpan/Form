@@ -1,0 +1,22 @@
+
+This is an extension of the HTTP::Request suite. It allows easily processing
+of forms in a user-agent by filling out fields, querying fields, selections
+and buttons and pressing buttons. It uses HTML::TreeBuilder generated parse
+trees of documents (especially the forms parts extracted with extract_links)
+and generates it's own internal representation of forms from which it generates
+the request-objects to process the form application.
+
+This is version 0.1. It requires and relies on:
+
+   Perl version 5.004 or later
+
+   HTTP::Request::Common
+   HTML::TreeBuilder
+   LWP::UserAgent
+
+Installation should work with perl makefile.pl; make install.
+
+Feedback (especially of the installation - my system currently doesn't support
+MakeMaker correctly, so this might not work as expected)
+
+Georg Bauer <Georg_Bauer@muensterland.org>
