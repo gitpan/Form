@@ -5,7 +5,7 @@ use vars qw($VERSION);
 use URI::URL;
 use HTTP::Request::Common;
 
-$VERSION = "0.1";
+$VERSION = "0.2";
 
 sub new {
    my ($class, $form, $base, $debug) = @_;
@@ -236,8 +236,12 @@ HTTP::Request::Form - Construct HTTP::Request objects for form processing
 
 =head1 DESCRIPTION
 
-This module provides functions that return newly created HTTP::Request
-objects that allow the automated processing of HTML form elements.
+This is an extension of the HTTP::Request suite. It allows easy processing
+of forms in a user agent by filling out fields, querying fields, selections
+and buttons and pressing buttons. It uses HTML::TreeBuilder generated parse
+triees of documents (especially the forms parts extracted with extract_links)
+and generates it's own internal representation of forms from which it then
+generates the request objects to process the form application.
 
 =head1 CLASS METHODS
 
@@ -335,9 +339,37 @@ This method dumps the form-data on stdio for debugging purpose.
 L<HTTP::Request>, L<HTTP::Request::Common>, L<LWP::UserAgent>,
 L<HTML::Element>, L<URI::URL>
 
+=head1 INSTALLATION
+
+  perl Makefile.PL
+  make install
+
+=head1 REQUIRES
+
+  Perl version 5.004 or later
+
+  HTTP::Request::Common
+  HTML::TreeBuilder
+  LWP::UserAgent
+
 =head1 VERSION
 
-HTTP::Request::Form version 0.1, February 13th, 1998
+HTTP::Request::Form version 0.2, July 15th, 1998
+
+=head1 BUGS
+
+Only a subset of all possible form elements are currently supported. The list
+of supported tags as of this version includes:
+
+  INPUT
+  INPUT/HIDDEN
+  INPUT/SUBMIT
+  SELECT
+  OPTION
+
+There currently is no special code to help with radio buttons or checkboxes.
+Although these can easily be used with the standard INPUT handler, it would
+be better to give a simpler interface to them.
 
 =head1 COPYRIGHT
 
